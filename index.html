@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Conceptual: Panel de Discusión</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Fuente personalizada */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7f6; /* Un gris muy claro */
+        }
+        /* Colores de borde para cada tarjeta */
+        .card-border-infografia { border-top-color: #3b82f6; } /* Azul */
+        .card-border-video { border-top-color: #ef4444; } /* Rojo */
+        .card-border-podcast { border-top-color: #8b5cf6; } /* Púrpura */
+        .card-border-simulacion { border-top-color: #22c55e; } /* Verde */
+    </style>
+</head>
+<body class="p-4 md:p-12">
+    <main class="max-w-7xl mx-auto">
+        <!-- Título Principal (Root Node) -->
+        <header class="text-center mb-4">
+            <!-- Hago que el encabezado parezca la tarjeta raíz -->
+            <div class="inline-block bg-white p-6 rounded-lg shadow-xl border-t-8 border-blue-700">
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Propuesta de Producto Educativo Digital</h1>
+                <h2 class="text-xl md:text-2xl font-semibold text-blue-700">TEMA: El panel de discusión: Diálogos académico argumentados</h2>
+                <p class="text-lg text-gray-700 mt-2 max-w-3xl mx-auto">
+                    <strong>OBJETIVO GENERAL:</strong> Que los estudiantes desarrollen opiniones fundamentadas, escucha activa, pensamiento crítico y voz autoral.
+                </p>
+            </div>
+        </header>
+
+        <!-- Estructura de líneas de conexión -->
+        <div class="flex justify-center mb-0"> <!-- Línea de tronco vertical -->
+            <div class="w-1.5 h-12 bg-gray-400"></div>
+        </div>
+        
+        <!-- Rama horizontal (solo en pantallas grandes) -->
+        <div class="hidden lg:block w-11/12 mx-auto h-1.5 bg-gray-400 rounded-full"></div>
+
+        <!-- Contenedor de las ramas (maneja el apilamiento móvil) -->
+        <div class="lg:grid lg:grid-cols-4 lg:gap-6"> 
+            
+            <!-- Rama 1: Infografía -->
+            <div class="flex flex-col items-center mt-6 lg:mt-0">
+                <!-- Línea vertical (desde la rama horizontal) -->
+                <div class="hidden lg:block w-1.5 h-12 bg-gray-400"></div>
+                <!-- Línea vertical (para pila móvil) -->
+                <div class="w-1.5 h-12 bg-gray-400 lg:hidden"></div>
+                
+                <article class="bg-white rounded-lg shadow-lg overflow-hidden border-t-8 card-border-infografia w-full">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-4">1. Infografía Interactiva</h4>
+                        <ul class="space-y-3 text-sm text-gray-700">
+                            <li><strong>Función Pedagógica:</strong> Conceptualizar (Definir el "Qué" y el "Por qué").</li>
+                            <li><strong>Contribución al Objetivo:</strong> Desglosa visualmente un argumento (Afirmación + Evidencia + Razón) y define la escucha activa y la voz autoral.</li>
+                            <li><strong>Recursos Humanos:</strong> Diseñador y Pedagogo.</li>
+                            <li><strong>Recursos Materiales:</strong> Canva (o Genially), herramientas de IA, banco de imágenes.</li>
+                            <li><strong>Alojamiento y Consulta:</strong> Alojada en Google Classroom y/o GitHub Pages. Consultada en navegador web (PC/móvil).</li>
+                            <li><strong>Software (Estudiante):</strong> Navegador web estándar.</li>
+                            <li><strong>Habilidades (Estudiante):</strong> Navegación web básica, hacer clic en puntos interactivos.</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Rama 2: Video -->
+            <div class="flex flex-col items-center mt-6 lg:mt-0">
+                <div class="hidden lg:block w-1.5 h-12 bg-gray-400"></div>
+                <div class="w-1.5 h-12 bg-gray-400 lg:hidden"></div>
+                <article class="bg-white rounded-lg shadow-lg overflow-hidden border-t-8 card-border-video w-full">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-4">2. Video Explicativo</h4>
+                        <ul class="space-y-3 text-sm text-gray-700">
+                            <li><strong>Función Pedagógica:</strong> Modelar (Mostrar el "Cómo" en la práctica).</li>
+                            <li><strong>Contribución al Objetivo:</strong> Muestra un panel en acción. Los estudiantes observan el lenguaje corporal (escucha activa), la fluidez y cómo se citan fuentes (argumento fundamentado).</li>
+                            <li><strong>Recursos Humanos:</strong> Pedagogo (guion), Editor de video, Participantes (actores).</li>
+                            <li><strong>Recursos Materiales:</strong> Cámaras, micrófonos, software de edición (Clipchamp).</li>
+                            <li><strong>Alojamiento y Consulta:</strong> Alojado en YouTube (privado) e incrustado en Google Classroom.</li>
+                            <li><strong>Software (Estudiante):</strong> Navegador web.</li>
+                            <li><strong>Habilidades (Estudiante):</strong> Habilidad básica para reproducir un video.</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Rama 3: Podcast -->
+            <div class="flex flex-col items-center mt-6 lg:mt-0">
+                <div class="hidden lg:block w-1.5 h-12 bg-gray-400"></div>
+                <div class="w-1.5 h-12 bg-gray-400 lg:hidden"></div>
+                <article class="bg-white rounded-lg shadow-lg overflow-hidden border-t-8 card-border-podcast w-full">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-4">3. Podcast Educativo</h4>
+                        <ul class="space-y-3 text-sm text-gray-700">
+                            <li><strong>Función Pedagógica:</strong> Agudizar (Enfocarse en la escucha y el argumento).</li>
+                            <li><strong>Contribución al Objetivo:</strong> Al eliminar lo visual, fuerza al estudiante a enfocarse 100% en la escucha activa, identificando el tono, las pausas y la estructura del argumento solo por el audio.</li>
+                            <li><strong>Recursos Humanos:</strong> Pedagogo, Editor de audio, Participantes.</li>
+                            <li><strong>Recursos Materiales:</strong> Micrófonos de calidad, software de edición (Audacity), IA para limpieza de audio.</li>
+                            <li><strong>Alojamiento y Consulta:</strong> Archivo .mp3 en Google Classroom o GitHub. Se puede escuchar en cualquier dispositivo.</li>
+                            <li><strong>Software (Estudiante):</strong> Navegador web o cualquier reproductor de audio.</li>
+                            <li><strong>Habilidades (Estudiante):</strong> Habilidad básica para reproducir audio.</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Rama 4: Simulación -->
+            <div class="flex flex-col items-center mt-6 lg:mt-0">
+                <div class="hidden lg:block w-1.5 h-12 bg-gray-400"></div>
+                <div class="w-1.5 h-12 bg-gray-400 lg:hidden"></div>
+                <article class="bg-white rounded-lg shadow-lg overflow-hidden border-t-8 card-border-simulacion w-full">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-4">4. Simulaciones o Juegos Educativos</h4>
+                        <ul class="space-y-3 text-sm text-gray-700">
+                            <li><strong>Función Pedagógica:</strong> Practicar (Aplicar el conocimiento en un entorno seguro).</li>
+                            <li><strong>Contribución al Objetivo:</strong> Es la aplicación directa. El estudiante se enfrenta a un escenario (ej. una falacia) y debe elegir la respuesta correcta (basada en argumento, no en opinión), recibiendo retroalimentación inmediata.</li>
+                            <li><strong>Recursos Humanos:</strong> Diseñador instruccional, Programador (o experto en Genially), IA para escenarios.</li>
+                            <li><strong>Recursos Materiales:</strong> Software de autoría (Genially, Storyline) o HTML/JS básico.</li>
+                            <li><strong>Alojamiento y Consulta:</strong> Incrustado en Google Classroom o alojado en GitHub Pages.</li>
+                            <li><strong>Software (Estudiante):</strong> Navegador web.</li>
+                            <li><strong>Habilidades (Estudiante):</strong> Lectura de comprensión y habilidad para seleccionar opciones.</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+
+        </div> <!-- Fin del contenedor de ramas -->
+    </main>
+</body>
+</html>
