@@ -112,11 +112,9 @@
             
             <button onclick="nextSlide()" class="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-extrabold py-4 px-10 rounded-full shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1 text-lg flex items-center gap-3 mx-auto">
                 INICIAR RECORRIDO
-                <!-- Flecha SVG inline para asegurar que se vea -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </button>
         </div>
-        <!-- Decoración de fondo -->
         <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
     </div>
 
@@ -124,7 +122,6 @@
     <div class="slide bg-gray-100">
         <div class="glass-panel flex flex-col md:flex-row gap-8 items-center">
             
-            <!-- Texto -->
             <div class="md:w-1/2">
                 <div class="flex items-center gap-2 mb-2 text-blue-600 font-bold uppercase tracking-wider text-sm">
                     <i data-lucide="lightbulb" class="w-5 h-5"></i> Concepto Clave
@@ -140,13 +137,9 @@
                 </div>
             </div>
 
-            <!-- VIDEO DE YOUTUBE (IFRAME REAL) -->
+            <!-- VIDEO DE YOUTUBE -->
             <div class="md:w-1/2 w-full flex flex-col gap-3">
                 <div class="aspect-video bg-black rounded-xl overflow-hidden shadow-2xl border-4 border-white relative group">
-                    <!-- 
-                        NOTA: Si ves "Error 153", es porque el dueño del video bloqueó la reproducción en otros sitios.
-                        Usa el botón de abajo para verlo.
-                    -->
                     <iframe 
                         width="100%" 
                         height="100%" 
@@ -158,7 +151,7 @@
                     </iframe>
                 </div>
                 
-                <!-- BOTÓN DE RESPALDO POR SI FALLA LA CARGA -->
+                <!-- BOTÓN DE RESPALDO -->
                 <a href="https://youtu.be/wGC0r_mnJxo" target="_blank" class="flex items-center justify-center gap-2 text-sm text-blue-600 hover:text-blue-800 font-semibold bg-white p-2 rounded-lg shadow-sm border border-gray-200 hover:bg-gray-50 transition-colors">
                     <i data-lucide="external-link" class="w-4 h-4"></i>
                     Si el video no carga, clic aquí para verlo en YouTube
@@ -244,7 +237,7 @@
         </div>
     </div>
 
-    <!-- ================= DIAPOSITIVA 5: CIERRE ================= -->
+    <!-- ================= DIAPOSITIVA 5: CIERRE Y ENLACE ================= -->
     <div class="slide bg-white text-center">
         <div class="max-w-2xl px-6 relative z-10">
             <div class="mb-8 animate-bounce inline-block p-5 bg-blue-50 rounded-full shadow-sm">
@@ -257,98 +250,68 @@
                 El debate comienza con una idea,<br>pero se sostiene con argumentos sólidos.
             </p>
             
+            <!-- TARJETA DEL ENLACE A LA INFOGRAFÍA -->
             <div class="bg-blue-50 border-2 border-blue-100 p-8 rounded-2xl mb-10 shadow-lg transform rotate-1 hover:rotate-0 transition-transform">
-                <h4 class="font-bold text-blue-800 mb-3 text-lg flex items-center justify-center gap-2">
-                    <i data-lucide="download" class="w-6 h-6"></i> Siguiente Paso:
+                <h4 class="font-bold text-blue-800 mb-4 text-xl flex items-center justify-center gap-2">
+                    <i data-lucide="star" class="w-6 h-6 text-yellow-500 fill-yellow-500"></i> Siguiente Paso:
                 </h4>
-                <p class="text-gray-700">Descarga la <strong class="text-blue-600 text-lg">Infografía Interactiva</strong> disponible en el Aula Virtual para estructurar tu primer argumento.</p>
+                <p class="text-gray-700 mb-6 text-lg">
+                    Revisa la Infografía Interactiva para aprender a estructurar tu argumento.
+                </p>
+                
+                <!-- BOTÓN AL ENLACE QUE PROPORCIONASTE -->
+                <a href="https://pablogguizar.github.io/-R3.-La-propuesta-de-productos-educativos-digitales/panel-infografia.html" target="_blank" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+                    <i data-lucide="external-link" class="w-5 h-5"></i>
+                    Abrir Infografía Interactiva
+                </a>
             </div>
 
             <button onclick="goToSlide(0)" class="text-gray-400 hover:text-blue-600 font-semibold underline text-sm flex items-center justify-center gap-2 mx-auto transition-colors">
                 <i data-lucide="rotate-ccw" class="w-4 h-4"></i> Volver al inicio
             </button>
         </div>
-        <!-- Fondo decorativo -->
         <div class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-40"></div>
     </div>
 
-    <!-- ================= CONTROLES DE NAVEGACIÓN (SIEMPRE VISIBLES) ================= -->
+    <!-- ================= CONTROLES Y LOGICA ================= -->
     <div class="fixed bottom-8 right-8 flex gap-4 z-50">
-        <!-- Botón Anterior -->
         <button onclick="prevSlide()" class="btn-nav" aria-label="Anterior">
-            <!-- Icono SVG inline (No depende de JS externo) -->
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
         </button>
-        
-        <!-- Botón Siguiente -->
         <button onclick="nextSlide()" class="btn-nav" aria-label="Siguiente">
-            <!-- Icono SVG inline -->
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
         </button>
     </div>
 
-    <!-- Barra de Progreso -->
     <div class="progress-bar" id="progressBar" style="width: 20%"></div>
 
-    <!-- ================= LÓGICA JAVASCRIPT ROBUSTA ================= -->
     <script>
-        // Variables Globales
         let currentSlideIndex = 0;
         const slides = document.querySelectorAll('.slide');
         const progressBar = document.getElementById('progressBar');
 
-        // Función Principal: Mostrar Diapositiva
         function showSlide(index) {
-            // Validar límites
             if (index < 0) index = 0;
             if (index >= slides.length) index = slides.length - 1;
-
-            // 1. Ocultar todas
-            slides.forEach(slide => {
-                slide.classList.remove('active');
-            });
-
-            // 2. Mostrar la actual
+            slides.forEach(slide => slide.classList.remove('active'));
             slides[index].classList.add('active');
-            
-            // 3. Actualizar barra de progreso
-            const progressPercentage = ((index + 1) / slides.length) * 100;
-            if(progressBar) progressBar.style.width = `${progressPercentage}%`;
-
-            // 4. Actualizar índice global
+            if(progressBar) progressBar.style.width = `${((index + 1) / slides.length) * 100}%`;
             currentSlideIndex = index;
         }
 
-        // Funciones de Control (Globales para que el HTML las encuentre)
-        window.nextSlide = function() {
-            showSlide(currentSlideIndex + 1);
-        };
+        window.nextSlide = function() { showSlide(currentSlideIndex + 1); };
+        window.prevSlide = function() { showSlide(currentSlideIndex - 1); };
+        window.goToSlide = function(index) { showSlide(index); }
 
-        window.prevSlide = function() {
-            showSlide(currentSlideIndex - 1);
-        };
-
-        window.goToSlide = function(index) {
-            showSlide(index);
-        }
-
-        // Navegación con Teclado
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter') {
-                nextSlide();
-            } else if (e.key === 'ArrowLeft') {
-                prevSlide();
-            }
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter') nextSlide();
+            else if (e.key === 'ArrowLeft') prevSlide();
         });
 
-        // Inicialización: Asegurar que arranque en la 0
         showSlide(0);
 
-        // Cargar iconos decorativos (Si falla, no rompe la navegación)
         window.addEventListener('load', () => {
-            if (typeof lucide !== 'undefined') {
-                lucide.createIcons();
-            }
+            if (typeof lucide !== 'undefined') lucide.createIcons();
         });
     </script>
 </body>
