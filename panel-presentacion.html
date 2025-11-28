@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación: El Panel de Discusión</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons (Script para iconos decorativos) -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #111827;
+            overflow: hidden; /* Evita barras de desplazamiento */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* --- Estilos de las Diapositivas --- */
+        .slide {
+            display: none; /* Ocultas por defecto */
+            width: 100vw;
+            height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .slide.active {
+            display: flex; /* Solo la activa es visible */
+            opacity: 1;
+            z-index: 10;
+        }
+
+        /* --- Botones de Navegación (Mejorados) --- */
+        .btn-nav {
+            background-color: rgba(59, 130, 246, 0.2); /* Azul translúcido */
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s;
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 50; /* Siempre encima */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .btn-nav:hover {
+            background-color: rgba(59, 130, 246, 0.6);
+            transform: scale(1.1);
+            border-color: white;
+        }
+
+        .btn-nav:active {
+            transform: scale(0.95);
+        }
+
+        /* --- Paneles de Contenido --- */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            max-width: 1100px;
+            width: 90%;
+            color: #1f2937;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            z-index: 20;
+        }
+
+        /* Barra de progreso */
+        .progress-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 8px;
+            background-color: #3b82f6; /* Azul brillante */
+            transition: width 0.3s ease;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================= DIAPOSITIVA 1: PORTADA ================= -->
+    <div class="slide active bg-gradient-to-br from-blue-900 via-blue-800 to-slate-900 text-white">
+        <div class="text-center px-4 z-20">
+            <div class="inline-block bg-white/10 backdrop-blur-md border border-white/20 px-6 py-2 rounded-full text-sm font-semibold mb-8 tracking-[0.2em] uppercase text-blue-200">
+                Comunicación Oral y Escrita
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight drop-shadow-lg">
+                El Panel de<br><span class="text-yellow-400">Discusión</span>
+            </h1>
+            <h2 class="text-xl md:text-2xl font-light text-gray-200 mb-12 max-w-2xl mx-auto">
+                Guía interactiva sobre roles, dinámicas y la construcción de argumentos académicos.
+            </h2>
+            
+            <button onclick="nextSlide()" class="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-extrabold py-4 px-10 rounded-full shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1 text-lg flex items-center gap-3 mx-auto">
+                INICIAR RECORRIDO
+                <!-- Flecha SVG inline para asegurar que se vea -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </button>
+        </div>
+        <!-- Decoración de fondo -->
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+    </div>
+
+    <!-- ================= DIAPOSITIVA 2: DEFINICIÓN Y VIDEO ================= -->
+    <div class="slide bg-gray-100">
+        <div class="glass-panel flex flex-col md:flex-row gap-8 items-center">
+            
+            <!-- Texto -->
+            <div class="md:w-1/2">
+                <div class="flex items-center gap-2 mb-2 text-blue-600 font-bold uppercase tracking-wider text-sm">
+                    <i data-lucide="lightbulb" class="w-5 h-5"></i> Concepto Clave
+                </div>
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-gray-900">¿Qué es un Panel?</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    Es una reunión dedicada a la puesta en común y actualización de un tema concreto, fijado con antelación.
+                </p>
+                <div class="bg-blue-50 border-l-4 border-blue-600 p-5 rounded-r-lg shadow-sm">
+                    <p class="text-blue-900 font-medium">
+                        "No es una pelea ni un debate hostil; es una <strong>construcción colectiva de conocimiento</strong>."
+                    </p>
+                </div>
+            </div>
+
+            <!-- VIDEO DE YOUTUBE (IFRAME REAL) -->
+            <div class="md:w-1/2 w-full flex flex-col gap-3">
+                <div class="aspect-video bg-black rounded-xl overflow-hidden shadow-2xl border-4 border-white relative group">
+                    <!-- 
+                        NOTA: Si ves "Error 153", es porque el dueño del video bloqueó la reproducción en otros sitios.
+                        Usa el botón de abajo para verlo.
+                    -->
+                    <iframe 
+                        width="100%" 
+                        height="100%" 
+                        src="https://www.youtube.com/embed/wGC0r_mnJxo" 
+                        title="Video Player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                
+                <!-- BOTÓN DE RESPALDO POR SI FALLA LA CARGA -->
+                <a href="https://youtu.be/wGC0r_mnJxo" target="_blank" class="flex items-center justify-center gap-2 text-sm text-blue-600 hover:text-blue-800 font-semibold bg-white p-2 rounded-lg shadow-sm border border-gray-200 hover:bg-gray-50 transition-colors">
+                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                    Si el video no carga, clic aquí para verlo en YouTube
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= DIAPOSITIVA 3: ROLES ================= -->
+    <div class="slide bg-slate-200">
+        <div class="max-w-6xl w-full px-4">
+            <h2 class="text-4xl font-extrabold text-center mb-10 text-slate-800 drop-shadow-sm">Los Protagonistas</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Tarjeta Moderador -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow border-t-8 border-indigo-500 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i data-lucide="mic-2" width="100" height="100" class="text-indigo-600"></i>
+                    </div>
+                    <div class="bg-indigo-100 w-14 h-14 rounded-full flex items-center justify-center text-indigo-600 mb-6 shadow-inner">
+                        <i data-lucide="mic-2" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">El Moderador</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-green-500 mt-1"></i> <span>Presenta el tema y a los invitados.</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-green-500 mt-1"></i> <span><strong>Controla el tiempo</strong> y los turnos.</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-green-500 mt-1"></i> <span>Sintetiza ideas y mantiene el respeto.</span></li>
+                    </ul>
+                </div>
+
+                <!-- Tarjeta Panelista -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow border-t-8 border-orange-500 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i data-lucide="users" width="100" height="100" class="text-orange-600"></i>
+                    </div>
+                    <div class="bg-orange-100 w-14 h-14 rounded-full flex items-center justify-center text-orange-600 mb-6 shadow-inner">
+                        <i data-lucide="users" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Los Panelistas</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-green-500 mt-1"></i> <span>Expertos o estudiantes preparados.</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-green-500 mt-1"></i> <span>Argumentan con <strong>evidencia</strong>.</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-green-500 mt-1"></i> <span>Dialogan entre sí, no solo al moderador.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= DIAPOSITIVA 4: REGLAS DE ORO ================= -->
+    <div class="slide bg-blue-900 text-white">
+        <div class="max-w-6xl w-full text-center px-4">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-12">3 Reglas de <span class="text-yellow-400 underline decoration-4 underline-offset-8">Oro</span></h2>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Regla 1 -->
+                <div class="bg-white/5 p-8 rounded-2xl backdrop-blur-sm border border-white/10 hover:bg-white/10 transition hover:-translate-y-2 duration-300">
+                    <div class="mx-auto bg-blue-500/30 w-20 h-20 rounded-full flex items-center justify-center mb-6 shadow-lg">
+                        <i data-lucide="shield-check" class="w-10 h-10 text-yellow-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Respeto Absoluto</h3>
+                    <p class="text-blue-100 text-sm leading-relaxed">Se atacan las ideas, <strong>nunca a las personas</strong>. Evita falacias personales.</p>
+                </div>
+                
+                <!-- Regla 2 -->
+                <div class="bg-white/5 p-8 rounded-2xl backdrop-blur-sm border border-white/10 hover:bg-white/10 transition hover:-translate-y-2 duration-300">
+                    <div class="mx-auto bg-blue-500/30 w-20 h-20 rounded-full flex items-center justify-center mb-6 shadow-lg">
+                        <i data-lucide="clock" class="w-10 h-10 text-yellow-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Tiempo Limitado</h3>
+                    <p class="text-blue-100 text-sm leading-relaxed">La concisión es una virtud académica. <strong>Respeta tus minutos</strong> asignados.</p>
+                </div>
+
+                <!-- Regla 3 -->
+                <div class="bg-white/5 p-8 rounded-2xl backdrop-blur-sm border border-white/10 hover:bg-white/10 transition hover:-translate-y-2 duration-300">
+                    <div class="mx-auto bg-blue-500/30 w-20 h-20 rounded-full flex items-center justify-center mb-6 shadow-lg">
+                        <i data-lucide="scale" class="w-10 h-10 text-yellow-400"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Fundamentación</h3>
+                    <p class="text-blue-100 text-sm leading-relaxed">"Yo creo..." debe ir siempre seguido de <strong>"porque la evidencia dice..."</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= DIAPOSITIVA 5: CIERRE ================= -->
+    <div class="slide bg-white text-center">
+        <div class="max-w-2xl px-6 relative z-10">
+            <div class="mb-8 animate-bounce inline-block p-5 bg-blue-50 rounded-full shadow-sm">
+                <i data-lucide="mic" class="w-16 h-16 text-blue-600"></i>
+            </div>
+            <h2 class="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6">
+                ¿Listo para tu <span class="text-blue-600">Voz Autoral</span>?
+            </h2>
+            <p class="text-xl text-gray-500 mb-10 leading-relaxed">
+                El debate comienza con una idea,<br>pero se sostiene con argumentos sólidos.
+            </p>
+            
+            <div class="bg-blue-50 border-2 border-blue-100 p-8 rounded-2xl mb-10 shadow-lg transform rotate-1 hover:rotate-0 transition-transform">
+                <h4 class="font-bold text-blue-800 mb-3 text-lg flex items-center justify-center gap-2">
+                    <i data-lucide="download" class="w-6 h-6"></i> Siguiente Paso:
+                </h4>
+                <p class="text-gray-700">Descarga la <strong class="text-blue-600 text-lg">Infografía Interactiva</strong> disponible en el Aula Virtual para estructurar tu primer argumento.</p>
+            </div>
+
+            <button onclick="goToSlide(0)" class="text-gray-400 hover:text-blue-600 font-semibold underline text-sm flex items-center justify-center gap-2 mx-auto transition-colors">
+                <i data-lucide="rotate-ccw" class="w-4 h-4"></i> Volver al inicio
+            </button>
+        </div>
+        <!-- Fondo decorativo -->
+        <div class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-40"></div>
+    </div>
+
+    <!-- ================= CONTROLES DE NAVEGACIÓN (SIEMPRE VISIBLES) ================= -->
+    <div class="fixed bottom-8 right-8 flex gap-4 z-50">
+        <!-- Botón Anterior -->
+        <button onclick="prevSlide()" class="btn-nav" aria-label="Anterior">
+            <!-- Icono SVG inline (No depende de JS externo) -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        
+        <!-- Botón Siguiente -->
+        <button onclick="nextSlide()" class="btn-nav" aria-label="Siguiente">
+            <!-- Icono SVG inline -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+    </div>
+
+    <!-- Barra de Progreso -->
+    <div class="progress-bar" id="progressBar" style="width: 20%"></div>
+
+    <!-- ================= LÓGICA JAVASCRIPT ROBUSTA ================= -->
+    <script>
+        // Variables Globales
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const progressBar = document.getElementById('progressBar');
+
+        // Función Principal: Mostrar Diapositiva
+        function showSlide(index) {
+            // Validar límites
+            if (index < 0) index = 0;
+            if (index >= slides.length) index = slides.length - 1;
+
+            // 1. Ocultar todas
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+
+            // 2. Mostrar la actual
+            slides[index].classList.add('active');
+            
+            // 3. Actualizar barra de progreso
+            const progressPercentage = ((index + 1) / slides.length) * 100;
+            if(progressBar) progressBar.style.width = `${progressPercentage}%`;
+
+            // 4. Actualizar índice global
+            currentSlideIndex = index;
+        }
+
+        // Funciones de Control (Globales para que el HTML las encuentre)
+        window.nextSlide = function() {
+            showSlide(currentSlideIndex + 1);
+        };
+
+        window.prevSlide = function() {
+            showSlide(currentSlideIndex - 1);
+        };
+
+        window.goToSlide = function(index) {
+            showSlide(index);
+        }
+
+        // Navegación con Teclado
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+
+        // Inicialización: Asegurar que arranque en la 0
+        showSlide(0);
+
+        // Cargar iconos decorativos (Si falla, no rompe la navegación)
+        window.addEventListener('load', () => {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
+    </script>
+</body>
+</html>
